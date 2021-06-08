@@ -1,21 +1,28 @@
 <h1>Cập nhật thông tin danh mục sách</h1>
 <form [formGroup]="bookForm" (ngSubmit)="updateBook(id)">
-  <table>
-    <tr>
-      <td>Tên sách:</td>
-      <td><input type="text" formControlName="title"></td>
-    </tr>
-    <tr>
-      <td>Tên tác giả:</td>
-      <td><input type="text" formControlName="author"></td>
-    </tr>
-    <tr>
-      <td>Mô tả:</td>
-      <td><input type="text" formControlName="description"></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><button>Cập nhật</button></td>
-    </tr>
-  </table>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Tên sách</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" formControlName="title" required="nhập tên sách">
+  </div>
+  <div style="color: red" class="alert alert-danger" role="alert" *ngIf="bookForm.get('title').invalid && bookForm.get('title').touched">
+    nhập tên sách!
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Tác giả</label>
+    <input type="text" class="form-control" id="exampleFormControlInput2" formControlName="author" required="nhập tên tác giả">
+  </div>
+  <div style="color: red" class="alert alert-danger" role="alert" *ngIf="bookForm.get('author').invalid && bookForm.get('author').touched">
+    nhập tên tác giả!
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Mô tả</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description" required="nhập mô tả"></textarea>
+  </div>
+  <div style="color: red" class="alert alert-danger" role="alert" *ngIf="bookForm.get('description').invalid && bookForm.get('description').touched">
+    Cung cấp mô tả
+  </div>
+  <div class="col-auto">
+    <button [disabled]="!bookForm.valid" type="submit" class="btn btn-primary mb-3">Sửa thông tin</button>
+  </div>
+
 </form>

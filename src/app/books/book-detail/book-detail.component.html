@@ -1,5 +1,5 @@
-<h1>Thông tin sách muốn xóa</h1>
-<form [formGroup]="bookForm" (ngSubmit)="deleteBook(id)">
+<h1>Thông tin chi tiết sách </h1>
+<form [formGroup]="bookForm" >
   <div class="mb-3">
     <label for="exampleFormControlInput1" class="form-label">Tên sách</label>
     <input type="text" class="form-control" id="exampleFormControlInput1" formControlName="title" required="nhập tên sách">
@@ -11,10 +11,5 @@
   <div class="mb-3">
     <label for="exampleFormControlTextarea1" class="form-label">Mô tả</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description" required="nhập mô tả"></textarea>
-  </div>
-  <div class="col-auto">
-    <button [disabled]="!bookForm.valid" type="submit" class="btn btn-primary mb-3">Xóa sách</button>
-
-
   </div>
 </form>

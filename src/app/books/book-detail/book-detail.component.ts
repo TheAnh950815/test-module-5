@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {BookService} from "../../service/book.service";
+import {FormControl, FormGroup} from '@angular/forms';
+import {BookService} from '../../service/book.service';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 
 @Component({
-  selector: 'app-book-delete',
-  templateUrl: './book-delete.component.html',
-  styleUrls: ['./book-delete.component.css']
+  selector: 'app-book-detail',
+  templateUrl: './book-detail.component.html',
+  styleUrls: ['./book-detail.component.css']
 })
-export class BookDeleteComponent implements OnInit {
+export class BookDetailComponent implements OnInit {
 
   bookForm: FormGroup = new FormGroup({
     title: new FormControl(),
@@ -40,14 +40,6 @@ export class BookDeleteComponent implements OnInit {
     });
   }
 
-  deleteBook(id: number) {
-    this.bookService.deleteBook(id).subscribe(() => {
-      alert('bạn chắc chắn muốn xóa');
-      this.router.navigate(['/books/list']);
-    }, e => {
-      console.log(e);
-    });
-  }
 
 
 }

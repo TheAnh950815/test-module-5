@@ -1,19 +1,19 @@
-<h1>Danh sách danh mục sản phẩm</h1>
-<a routerLink="/books/create">Tạo mới danh mục</a>
-<table>
-  <tr>
-    <td>STT</td>
-    <td>Tên</td>
-    <td>Tác giả</td>
-    <td>Mô tả</td>
-    <td colspan="2"></td>
+<h1 style="text-align: center">Danh sách danh mục sản phẩm</h1>
+
+<table class="table table-striped" >
+  <tr style="background: aqua">
+    <th scope="col" style="text-align: center">STT</th>
+    <th scope="col" style="text-align: center">Tên</th>
+    <th scope="col" style="text-align: center; width: 150px" >Tác giả</th>
+    <th scope="col" style="text-align: center">Mô tả</th>
+    <th colspan="2"></th>
   </tr>
   <tr *ngFor="let book of books; index as i">
     <td>{{i + 1}}</td>
-    <td>{{book.title}}</td>
-    <td>{{book.author}}</td>
+    <td><a style="text-decoration: none; width: 30px" [routerLink]="['/books/detail',book.id]">{{book.title}}</a></td>
+    <td style="width: 30px; text-align: center">{{book.author}}</td>
     <td>{{book.description}}</td>
-    <td><a [routerLink]="['/books/edit',book.id]">Edit</a></td>
-    <td><a [routerLink]="['/books/delete',book.id]">Delete</a></td>
+    <td><a style="text-decoration: none"  [routerLink]="['/books/edit',book.id]">Edit</a></td>
+    <td><a style="text-decoration: none" [routerLink]="['/books/delete',book.id]">Delete</a></td>
   </tr>
 </table>
